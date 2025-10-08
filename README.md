@@ -1,130 +1,130 @@
-from flask import Flask, render_template
+TailAdmin React - Free React Tailwind Admin Dashboard Template
+TailAdmin is a free and open-source admin dashboard template built on React and Tailwind CSS, providing developers with everything they need to create a comprehensive, data-driven back-end, dashboard, or admin panel solution for upcoming web projects.
 
-app = Flask(_name_)
+With TailAdmin, you get access to all the necessary dashboard UI components, elements, and pages required to build a feature-rich and complete dashboard or admin panel. Whether you're building dashboard or admin panel for a complex web application or a simple website, TailAdmin is the perfect solution to help you get up and running quickly.
 
-@app.route('/')
-def dashboard():
-    # Example data
-    metrics = {
-        'total_users': 1200,
-        'active_users': 875,
-        'revenue': 56000,
-        'growth': 12.5
-    }
+TailAdmin React.js Dashboard Preview
 
-    chart_data = {
-        'labels': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-        'sales': [1200, 1900, 3000, 2500, 2800, 3500],
-        'users': [200, 400, 500, 450, 600, 750]
-    }
+Overview
+TailAdmin provides essential UI components and layouts for building feature-rich, data-driven admin dashboards and control panels. It's built on:
 
-    return render_template('dashboard.html', metrics=metrics, chart_data=chart_data)
+React 19
+TypeScript
+Tailwind CSS
+Quick Links
+✨ Visit Website
+📄 Documentation
+⬇️ Download
+🖌️ Figma Design File (Community Edition)
+⚡ Get PRO Version
+Demos
+Free Version
+Pro Version
+Other Versions
+HTML Version
+Next.js Version
+Vue.js Version
+Installation
+Prerequisites
+To get started with TailAdmin, ensure you have the following prerequisites installed and set up:
 
-if _name_ == '_main_':
-    app.run(debug=True)# Admin-dashboard-with-charts
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>IBM-NJ Admin Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body class="bg-light">
-    <div class="container-fluid py-4">
-        <h2 class="text-center mb-4 text-primary fw-bold">IBM-NJ Admin Dashboard</h2>
+Node.js 18.x or later (recommended to use Node.js 20.x or later)
+Cloning the Repository
+Clone the repository using the following command:
 
-        <!-- Metrics Row -->
-        <div class="row g-4 text-center">
-            <div class="col-md-3">
-                <div class="card shadow p-3">
-                    <h6>Total Users</h6>
-                    <h3 class="text-primary">{{ metrics.total_users }}</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow p-3">
-                    <h6>Active Users</h6>
-                    <h3 class="text-success">{{ metrics.active_users }}</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow p-3">
-                    <h6>Total Sales ($)</h6>
-                    <h3 class="text-warning">{{ metrics.total_sales }}</h3>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow p-3">
-                    <h6>Growth Rate (%)</h6>
-                    <h3 class="text-danger">{{ metrics.growth_rate }}%</h3>
-                </div>
-            </div>
-        </div>
+git clone https://github.com/TailAdmin/free-react-tailwind-admin-dashboard.git
+Windows Users: place the repository near the root of your drive if you face issues while cloning.
 
-        <!-- Charts Row -->
-        <div class="row mt-5">
-            <div class="col-md-6 mb-4">
-                <div class="card shadow p-3">
-                    <h5 class="text-center text-secondary">Monthly Sales</h5>
-                    <canvas id="salesChart"></canvas>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="card shadow p-3">
-                    <h5 class="text-center text-secondary">Active Users Growth</h5>
-                    <canvas id="usersChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+Install dependencies:
 
-    <script>
-        const months = {{ chart_data.months | tojson }};
-        const salesData = {{ chart_data.sales | tojson }};
-        const userData = {{ chart_data.active_users | tojson }};
+npm install
+# or
+yarn install
+Use the --legacy-peer-deps flag, if you face issues while installing.
 
-        // Sales Chart
-        new Chart(document.getElementById('salesChart'), {
-            type: 'bar',
-            data: {
-                labels: months,
-                datasets: [{
-                    label: 'Sales ($)',
-                    data: salesData,
-                    backgroundColor: 'rgba(54, 162, 235, 0.7)'
-                }]
-            }
-        });
+Start the development server:
 
-        // Users Chart
-        new Chart(document.getElementById('usersChart'), {
-            type: 'line',
-            data: {
-                labels: months,
-                datasets: [{
-                    label: 'Active Users',
-                    data: userData,
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    fill: false,
-                    tension: 0.3
-                }]
-            }
-        });
-    </script>
-</body>
-</html>
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: #f7f9fc;
-}
+npm run dev
+# or
+yarn dev
+Components
+TailAdmin is a pre-designed starting point for building a web-based dashboard using React.js and Tailwind CSS. The template includes:
 
-.card {
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out;
-}
+Sophisticated and accessible sidebar
+Data visualization components
+Prebuilt profile management and 404 page
+Tables and Charts(Line and Bar)
+Authentication forms and input elements
+Alerts, Dropdowns, Modals, Buttons and more
+Can't forget Dark Mode 🕶️
+All components are built with React and styled using Tailwind CSS for easy customization.
 
-.card:hover {
-    transform: scale(1.05);
-}
+Feature Comparison
+Free Version
+1 Unique Dashboard
+30+ dashboard components
+50+ UI elements
+Basic Figma design files
+Community support
+Pro Version
+5 Unique Dashboards: Analytics, Ecommerce, Marketing, CRM, Stocks (more coming soon)
+400+ dashboard components and UI elements
+Complete Figma design file
+Email support
+To learn more about pro version features and pricing, visit our pricing page.
+
+Changelog
+Version 2.0.2 - [March 25, 2025]
+Upgraded to React 19
+Included overrides for packages to prevent peer dependency errors.
+Migrated from react-flatpickr to flatpickr package for React 19 support
+Version 2.0.1 - [February 27, 2025]
+Update Overview
+Upgraded to Tailwind CSS v4 for better performance and efficiency.
+Updated class usage to match the latest syntax and features.
+Replaced deprecated class and optimized styles.
+Next Steps
+Run npm install or yarn install to update dependencies.
+Check for any style changes or compatibility issues.
+Refer to the Tailwind CSS v4 Migration Guide on this release. if needed.
+This update keeps the project up to date with the latest Tailwind improvements. 🚀
+Version 2.0.0 - [February 2025]
+A major update with comprehensive redesign and modern React patterns implementation.
+
+Major Improvements
+Complete UI redesign with modern React patterns
+New features: collapsible sidebar, chat, and calendar
+Improved performance and accessibility
+Updated data visualization using ApexCharts
+Key Features
+Redesigned dashboards (Ecommerce, Analytics, Marketing, CRM)
+Enhanced navigation with React Router integration
+Advanced tables with sorting and filtering
+Calendar with drag-and-drop support
+New UI components and improved existing ones
+Breaking Changes
+Updated sidebar component API
+Migrated charts to ApexCharts
+Revised authentication system
+Read more on this release.
+
+Version 1.3.7 - [June 20, 2024]
+Enhancements
+Remove Repetition of DefaultLayout in every Pages
+Add ClickOutside Component for reduce repeated functionality in Header Message, Notification and User Dropdowns.
+Version 1.3.6 - [Jan 31, 2024]
+Enhancements
+Integrate flatpickr in [Date Picker/Form Elements]
+Change color after select an option [Select Element/Form Elements].
+Make it functional [Multiselect Dropdown/Form Elements].
+Make best value editable [Pricing Table One/Pricing Table].
+Rearrange Folder structure.
+Version 1.2.0 - [Apr 28, 2023]
+Add Typescript in TailAdmin React.
+Version 1.0.0 - Initial Release - [Mar 13, 2023]
+Initial release of TailAdmin React.
+License
+TailAdmin React.js Free Version is released under the MIT License.
+
+Support
+If you find this project helpful, please consider giving it a star on GitHub. Your support helps us continue developing and maintaining this template.
