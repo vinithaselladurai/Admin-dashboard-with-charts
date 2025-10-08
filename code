@@ -1,0 +1,99 @@
+from flask import Flask, render_template
+
+app = Flask(name)
+
+@app.route('/') def dashboard(): # Example data metrics = { 'total_users': 1200, 'active_users': 875, 'revenue': 56000, 'growth': 12.5 }
+
+chart_data = {
+    'labels': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    'sales': [1200, 1900, 3000, 2500, 2800, 3500],
+    'users': [200, 400, 500, 450, 600, 750]
+}
+
+return render_template('dashboard.html', metrics=metrics, chart_data=chart_data)
+if name == 'main': app.run(debug=True)# Admin-dashboard-with-charts
+
+<title>IBM-NJ Admin Dashboard</title> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+IBM-NJ Admin Dashboard
+    <!-- Metrics Row -->
+    <div class="row g-4 text-center">
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Total Users</h6>
+                <h3 class="text-primary">{{ metrics.total_users }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Active Users</h6>
+                <h3 class="text-success">{{ metrics.active_users }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Total Sales ($)</h6>
+                <h3 class="text-warning">{{ metrics.total_sales }}</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3">
+                <h6>Growth Rate (%)</h6>
+                <h3 class="text-danger">{{ metrics.growth_rate }}%</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+            <div class="card shadow p-3">
+                <h5 class="text-center text-secondary">Monthly Sales</h5>
+                <canvas id="salesChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card shadow p-3">
+                <h5 class="text-center text-secondary">Active Users Growth</h5>
+                <canvas id="usersChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const months = {{ chart_data.months | tojson }};
+    const salesData = {{ chart_data.sales | tojson }};
+    const userData = {{ chart_data.active_users | tojson }};
+
+    // Sales Chart
+    new Chart(document.getElementById('salesChart'), {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Sales ($)',
+                data: salesData,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)'
+            }]
+        }
+    });
+
+    // Users Chart
+    new Chart(document.getElementById('usersChart'), {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Active Users',
+                data: userData,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                fill: false,
+                tension: 0.3
+            }]
+        }
+    });
+</script>
+body { font-family: "Poppins", sans-serif; background-color: #f7f9fc; }
+.card { border-radius: 15px; transition: transform 0.3s ease-in-out; }
+
+.card:hover { transform: scale(1.05); }
